@@ -1,0 +1,148 @@
+<html>
+<head>
+    <title>PRACHI - My Website</title>
+    
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        /* Your custom styles here */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #f5d4c3;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            text-align: center;
+            padding: 1rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+            margin: 0 1rem;
+        }
+        nav a:hover {
+            color: #666;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: lightgrey;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="websiteTitle">MY WEBSITE<3</h1>
+        <p id="motto" style="color: brown;">Music &amp; Dance is therapy!</p>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#interests">Interests</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container" id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my personal website! I am Prachi, a 19 year old passionate about dance and music. </p>
+    </div>
+    <div class="container" id="Education">
+        <h2>Education</h2>
+        <p>School : Holy Cross English High School Amravati.<br>
+        College: Vivekanand Education society's Institute of technology.
+        <br>Branch: Artificial Intelligence and Data Science.</p>
+        
+    </div>
+    <div class="container" id="interests">
+        <h2>Interests</h2>
+        <p>I like dancing and listening to music.<br>
+        I love freestyle, hiphop, contemporary and kathak.</p>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, feel free to reach out to me at :</p>
+        <p>Email: prachipawar2220@gmail.com</p>
+        <p>Instagram : prachiii._22</p>
+    </div>
+    
+    <footer>
+        <p id="quote">Loading a random quote...</p>
+        <p id="copyright">&copy; 2023 Prachi. All rights reserved.</p>
+    </footer>
+    
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // JavaScript code goes here
+        const websiteTitle = document.getElementById('websiteTitle');
+        const motto = document.getElementById('motto');
+        const quote = document.getElementById('quote');
+        const copyright = document.getElementById('copyright');
+        
+        // Example of using variables and operators
+        const heart = '❤️';
+        websiteTitle.textContent = `MY WEBSITE ${heart}`;
+        
+        // Example of using conditions
+        const currentYear = new Date().getFullYear();
+        if (currentYear === 2023) {
+            copyright.textContent = `&copy; ${currentYear} Prachi. All rights reserved.`;
+        } else {
+            copyright.textContent = `&copy; ${currentYear} Prachi. Unauthorized use prohibited.`;
+        }
+        
+        // Example of using a loop
+        const navLinks = document.querySelectorAll('nav a');
+        for (const link of navLinks) {
+            link.style.fontWeight = 'bold';
+        }
+        
+        // Example of using an array for image gallery
+        const imageGallery = [
+            'image1.jpg',
+            'image2.jpg',
+            'image3.jpg'
+        ];
+        
+        let currentImageIndex = 0;
+        const galleryImage = document.getElementById('galleryImage');
+        
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % imageGallery.length;
+            galleryImage.src = imageGallery[currentImageIndex];
+        }
+        
+        // Show the first image initially
+        showNextImage();
+        
+        // Display a random quote
+        const quotes = [
+            'Life is either a daring adventure or nothing at all.',
+            'The only way to do great work is to love what you do.',
+            'In the middle of difficulty lies opportunity.'
+        ];
+        
+        const randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+        quote.textContent = quotes[randomQuoteIndex];
+    </script>
+</body>
+</html>

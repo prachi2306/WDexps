@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PRACHI - My Website</title>
+    
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        /* Your custom styles here */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #f5d4c3;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            text-align: center;
+            padding: 1rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+            margin: 0 1rem;
+        }
+        nav a:hover {
+            color: #666;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: lightgrey;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="websiteTitle">MY WEBSITE<3</h1>
+        <p id="motto" style="color: brown;">Music &amp; Dance is therapy!</p>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#interests">Interests</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container" id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my personal website! I am Prachi, a 19-year-old passionate about dance and music.</p>
+    </div>
+    <div class="container" id="Education">
+        <h2>Education</h2>
+        <p>School: Holy Cross English High School Amravati.<br>
+        College: Vivekanand Education society's Institute of technology.
+        <br>Branch: Artificial Intelligence and Data Science.</p>
+    </div>
+    <div class="container" id="interests">
+        <h2>Interests</h2>
+        <p>I like dancing and listening to music.<br>
+        I love freestyle, hiphop, contemporary, and kathak.</p>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="confirmationMessage"></p>
+    </div>
+    
+    <footer>
+        <p id="quote">Loading a random quote...</p>
+        <p id="currentDate">Current Date: Loading...</p>
+        <p id="copyright">&copy; 2023 Prachi. All rights reserved.</p>
+    </footer>
+    
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Original JavaScript code (as provided earlier)
+
+        // Function to handle form submission
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Perform validation here (e.g., check if email is valid)
+            if (!isValidEmail(email)) {
+                displayError("Invalid email address");
+                return;
+            }
+
+            // Display a confirmation message
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.textContent = `Thank you, ${name}! Your message has been sent.`;
+            confirmationMessage.style.color = 'green';
+        }
+
+        // Add an event listener to the form
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', submitForm);
+
+        // Dynamic Date
+        const currentDateElement = document.getElementById('currentDate');
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString();
+        currentDateElement.textContent = `Current Date: ${formattedDate}`;
+
+        // String Manipulation
+        const greeting = document.createElement('p');
+        const currentHour = currentDate.getHours();
+        if (currentHour < 12) {
+            greeting.textContent = 'Good morning!';
+        } else if (currentHour < 18) {
+            greeting.textContent = 'Good afternoon!';
+        } else {
+            greeting.textContent = 'Good evening!';
+        }
+        document.body.insertBefore(greeting, document.querySelector('header'));
+
+        // Arrays and Random Quote
+        const quotes = [
+            'Life is either a daring adventure or nothing at all.',
+            'The only way to do great work is to love what you do.',
+            'In the middle of difficulty lies opportunity.'
+        ];
+        const randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+        const quote = document.getElementById('quote');
+        quote.textContent = quotes[randomQuoteIndex];
+
+        // Validation function for email
+        function isValidEmail(email) {
+            // You can add more sophisticated email validation logic here
+            const emailPattern = /\S+@\S+\.\S+/;
+            return emailPattern.test(email);
+        }
+
+        // Error handling function
+        function displayError(errorMessage) {
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.textContent = errorMessage;
+            confirmationMessage.style.color = 'red';
+        }
+    </script>
+</body>
+</html>
